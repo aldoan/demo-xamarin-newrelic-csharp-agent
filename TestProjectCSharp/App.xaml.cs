@@ -19,7 +19,7 @@ namespace TestProjectCSharp
 
         protected override void OnSleep()
         {
-            NewRelic.Agent.onSleep();
+            NewRelic.Agent.OnSleep();
         }
 
         protected override void OnResume()
