@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestProjectCSharp.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+         <Button Text="Send Custom Event"  Clicked="Handle_Custom_Event" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <Button Text="Send Mobile Breadcrumb"  Clicked="Handle_Breadcrumb" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <Button Text="Trigger a Handled Error"  Clicked="Handle_Exception" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <Button Text="Crash the App"  Clicked="Handle_Crash" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <!--<Button Text="Report App Launch"  Clicked="Handle_Launch" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>-->
+        <Button Text="Send Request to be tracked"  Clicked="Send_Request_To_Track" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+    </StackLayout>
+
+</ContentPage>
