@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using NewRelic.logging;
+using NewRelic.Services.network;
 using Xamarin.Forms;
 
 namespace TestProjectCSharp
@@ -66,36 +67,65 @@ namespace TestProjectCSharp
 
         }
 
-        //void Handle_Launch(object sender, System.EventArgs e)
-        //{
-        //    ((Button)sender).Text = $"App Launch Reported";
-        //    NewRelic.Agent.recordAppLaunch();
-        //}
-
-        void Send_Request_To_Track(object sender, System.EventArgs e)
+        void Handle_Launch(object sender, System.EventArgs e)
         {
-            ((Button)sender).Text = $"Request Sent";
-
-            _ = HttpRequest();
-
+            ((Button)sender).Text = $"App Launch Reported";
+            NewRelic.Agent.recordAppLaunch();
         }
 
-        static async Task HttpRequest()
-        {
-            HttpClient client = new HttpClient();
-            // Call asynchronous network methods in a try/catch block to handle exceptions.
-            try
-            {
-                string responseBody = await client.GetStringAsync(new Uri("https://www.wigilabs.com/"));
-                NewRelic.Agent.noticeHttpTransaction("https://www.wigilabs.com/", "GET", 200, (long)100, (long)500, (long)150, (long)800);
 
-                Console.WriteLine(responseBody);
-            }
-            catch (HttpRequestException e)
-            {
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
-            }
+        void Send_Get_Request_To_Track(object sender, System.EventArgs e)
+        {
+            ((Button)sender).Text = $"Get Request Sent";
+            _ = GetRequest();
+        }
+
+        void Send_Put_Request_To_Track(object sender, System.EventArgs e)
+        {
+            ((Button)sender).Text = $"Put Request Sent";
+            _ = PutRequest();
+        }
+
+        void Send_Post_Request_To_Track(object sender, System.EventArgs e)
+        {
+            ((Button)sender).Text = $"Post Request Sent";
+            _ = PostRequest();
+        }
+
+        void Send_Delete_Request_To_Track(object sender, System.EventArgs e)
+        {
+            ((Button)sender).Text = $"Delete Request Sent";
+            _ = DeleteRequest();
+        }
+
+        static async Task<HttpResponseMessage> GetRequest()
+        {
+            NetworkRequest client = new NetworkRequest();
+            HttpResponseMessage responseBody = await client.GetAsync("https://www.wigilabs.com/");
+            return responseBody;
+        }
+
+        static async Task<HttpResponseMessage> PutRequest()
+        {
+            NetworkRequest client = new NetworkRequest();
+            HttpContent content = new StringContent("");
+            HttpResponseMessage responseBody = await client.PutAsync("https://www.wigilabs.com/", content);
+            return responseBody;
+        }
+
+        static async Task<HttpResponseMessage> PostRequest()
+        {
+            NetworkRequest client = new NetworkRequest();
+            HttpContent content = new StringContent("");
+            HttpResponseMessage responseBody = await client.PostAsync("https://www.wigilabs.com/", content);
+            return responseBody;
+        }
+
+        static async Task<HttpResponseMessage> DeleteRequest()
+        {
+            NetworkRequest client = new NetworkRequest();
+            HttpResponseMessage responseBody = await client.DeleteAsync("https://www.wigilabs.com/");
+            return responseBody;
         }
 
     }

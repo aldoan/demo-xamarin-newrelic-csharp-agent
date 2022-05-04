@@ -13,8 +13,11 @@
         <Button Text="Send Mobile Breadcrumb"  Clicked="Handle_Breadcrumb" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
         <Button Text="Trigger a Handled Error"  Clicked="Handle_Exception" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
         <Button Text="Crash the App"  Clicked="Handle_Crash" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
-        <!--<Button Text="Report App Launch"  Clicked="Handle_Launch" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>-->
-        <Button Text="Send Request to be tracked"  Clicked="Send_Request_To_Track" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <Button Text="Report App Launch"  Clicked="Handle_Launch" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <Button Text="Send GET Request to be tracked"  Clicked="Send_Get_Request_To_Track" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <Button Text="Send PUT Request to be tracked"  Clicked="Send_Put_Request_To_Track" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <Button Text="Send POST Request to be tracked"  Clicked="Send_Post_Request_To_Track" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
+        <Button Text="Send DELETE Request to be tracked"  Clicked="Send_Delete_Request_To_Track" BorderColor="#00838f" BackgroundColor="#00838f" TextColor="White" Margin="10, 0, 10, 0"/>
     </StackLayout>
 
 </ContentPage>
